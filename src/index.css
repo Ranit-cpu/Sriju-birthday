@@ -1,0 +1,226 @@
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/manrope/800.css';
+@import '@fontsource/unbounded/300.css';
+@import '@fontsource/unbounded/400.css';
+@import '@fontsource/unbounded/500.css';
+@import '@fontsource/unbounded/600.css';
+@import '@fontsource/unbounded/700.css';
+@import '@fontsource/unbounded/800.css';
+@import '@fontsource/unbounded/900.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-display: var(--app-font-display);
+  --font-mono: var(--app-font-mono);
+}
+
+:root {
+  --ink: #120f1e;
+  --night: #1b1530;
+  --yellow: #ffc857;
+  --pink: #ff5d8f;
+  --mint: #3fe0c5;
+  --paper: #f8f3ec;
+  --lavender: #b3a9c9;
+  --background: 254 33% 9%;
+  --foreground: 36 43% 95%;
+  --border: 258 24% 73% / 0.2;
+  --input: 258 24% 73% / 0.24;
+  --ring: 40 100% 67%;
+  --card: 254 39% 14%;
+  --card-foreground: 36 43% 95%;
+  --primary: 40 100% 67%;
+  --primary-foreground: 254 33% 9%;
+  --secondary: 170 71% 56%;
+  --secondary-foreground: 254 33% 9%;
+  --muted: 258 24% 73%;
+  --muted-foreground: 258 24% 73%;
+  --app-font-sans: 'Manrope', ui-sans-serif, sans-serif;
+  --app-font-display: 'Unbounded', ui-sans-serif, sans-serif;
+  --app-font-mono: 'Manrope', ui-sans-serif, sans-serif;
+  --radius: 1.1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 93, 143, 0.16), transparent 34rem),
+    radial-gradient(circle at 94% 16%, rgba(63, 224, 197, 0.1), transparent 36rem),
+    var(--ink);
+  color: var(--paper);
+  font-family: var(--app-font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+}
+
+.font-display {
+  font-family: var(--app-font-display);
+}
+
+.warm-wash {
+  background:
+    radial-gradient(circle at 28% 14%, rgba(255, 200, 87, 0.12), transparent 26rem),
+    radial-gradient(circle at 78% 42%, rgba(255, 93, 143, 0.1), transparent 32rem),
+    linear-gradient(135deg, var(--ink) 0%, var(--night) 52%, #261a3c 100%);
+}
+
+.noise::after {
+  content: '';
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(179, 169, 201, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(179, 169, 201, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 80%);
+}
+
+.glass {
+  border: 1px solid rgba(248, 243, 236, 0.16);
+  background: linear-gradient(135deg, rgba(248, 243, 236, 0.1), rgba(248, 243, 236, 0.035));
+  box-shadow: 0 26px 80px rgba(18, 15, 30, 0.32), inset 0 1px 0 rgba(248, 243, 236, 0.12);
+  backdrop-filter: blur(24px);
+}
+
+.headline-extrusion {
+  text-shadow:
+    1px 1px 0 #ff5d8f,
+    2px 2px 0 #ff5d8f,
+    3px 3px 0 #df4278,
+    4px 4px 0 #df4278,
+    5px 5px 0 #b72e60,
+    6px 6px 0 #b72e60,
+    0 20px 48px rgba(18, 15, 30, 0.45);
+}
+
+.photo-card {
+  box-shadow: 0 24px 50px rgba(18, 15, 30, 0.45), 0 0 0 1px rgba(248, 243, 236, 0.13);
+  transform-style: preserve-3d;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: clamp(0.8rem, 2vw, 1.6rem);
+}
+
+.masonry > figure {
+  break-inside: avoid;
+  margin: 0 0 clamp(0.8rem, 2vw, 1.6rem);
+}
+
+.cake-ground {
+  background: radial-gradient(ellipse, rgba(255, 200, 87, 0.3), transparent 65%);
+  filter: blur(2px);
+}
+
+.balloon {
+  filter: drop-shadow(10px 20px 14px rgba(18, 15, 30, 0.32));
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 2px);
+  width: 1px;
+  height: 130px;
+  background: rgba(248, 243, 236, 0.32);
+}
+
+@media (max-width: 767px) {
+  .masonry {
+    column-count: 2;
+  }
+
+  .hero-grid {
+    background-size: 30px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
